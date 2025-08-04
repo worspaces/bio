@@ -18,11 +18,11 @@
 .container {
   max-width: 700px;
   width: 90%;
-  background: linear-gradient(135deg, rgba(110, 96, 75, 0.9), rgba(140, 120, 85, 0.8));
+  background: linear-gradient(135deg, #6e604b 0%, #9a8f77 50%, #6e604b 100%);
   border-radius: 16px;
   box-shadow:
-    0 0 20px rgba(255, 76, 0, 0.85),
-    0 4px 24px rgba(0, 0, 0, 0.8);
+    0 0 30px 6px rgba(255, 76, 0, 0.85),
+    0 6px 30px rgba(0, 0, 0, 0.8);
   padding: 32px;
   text-align: center;
   position: relative;
@@ -44,14 +44,15 @@
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 16px;
-  filter: drop-shadow(0 0 8px #ff4c00);
+  filter: drop-shadow(0 0 12px #ff4c00);
   transition: filter 0.3s, box-shadow 0.3s, transform 0.3s;
 }
 
 .profile-picture:hover {
   transform: scale(1.1);
-  filter: drop-shadow(0 0 24px #ff4c00) drop-shadow(0 0 14px #cc3d00);
-  box-shadow: 0 0 14px #cc3d00;
+  filter:
+    drop-shadow(0 0 28px #ff4c00) drop-shadow(0 0 16px #cc3d00);
+  box-shadow: 0 0 16px #cc3d00;
 }
 
 h1 {
