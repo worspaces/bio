@@ -18,7 +18,12 @@
 .container {
   max-width: 700px;
   width: 90%;
-  background: linear-gradient(135deg, #ff4c00 0%, #ffbe7b 35%, #6e604b 100%);
+  background: linear-gradient(
+    180deg,
+    #3d2614 0%,
+    #a16d36 55%,
+    #7c4f21 100%
+  );
   border-radius: 16px;
   box-shadow:
     0 0 38px 10px #ff4c00,
