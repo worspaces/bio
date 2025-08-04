@@ -51,14 +51,11 @@
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 16px;
-  filter: drop-shadow(0 0 22px #ff4c00);
   transition: filter 0.3s, box-shadow 0.3s, transform 0.3s;
 }
 
 .profile-picture:hover {
   transform: scale(1.1);
-  filter:
-    drop-shadow(0 0 44px #ff4c00) drop-shadow(0 0 22px #ff4c00);
   box-shadow: 0 0 18px #ff4c00;
 }
 
