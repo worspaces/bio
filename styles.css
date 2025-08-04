@@ -19,11 +19,12 @@
   max-width: 700px;
   width: 90%;
   background: linear-gradient(
-    180deg,
-    #3d2614 0%,
-    #a16d36 55%,
-    #7c4f21 100%
-  );
+  180deg,
+  #ff4c00 0%,
+  #a16d36 40%,
+  #7c4f21 80%,
+  #241205 100%
+);
   border-radius: 16px;
   box-shadow:
     0 0 38px 10px #ff4c00,
