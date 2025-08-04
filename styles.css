@@ -18,10 +18,10 @@
 .container {
   max-width: 700px;
   width: 90%;
-  background: rgba(110, 96, 75, 0.85);
+  background: linear-gradient(135deg, rgba(110, 96, 75, 0.9), rgba(140, 120, 85, 0.8));
   border-radius: 16px;
   box-shadow:
-    0 0 12px rgba(255, 76, 0, 0.7),
+    0 0 20px rgba(255, 76, 0, 0.85),
     0 4px 24px rgba(0, 0, 0, 0.8);
   padding: 32px;
   text-align: center;
@@ -44,16 +44,14 @@
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 16px;
-  filter:
-    drop-shadow(0 0 6px #ff4c00);
+  filter: drop-shadow(0 0 8px #ff4c00);
   transition: filter 0.3s, box-shadow 0.3s, transform 0.3s;
 }
 
 .profile-picture:hover {
   transform: scale(1.1);
-  filter:
-    drop-shadow(0 0 18px #ff4c00) drop-shadow(0 0 10px #cc3d00);
-  box-shadow: 0 0 10px #cc3d00;
+  filter: drop-shadow(0 0 24px #ff4c00) drop-shadow(0 0 14px #cc3d00);
+  box-shadow: 0 0 14px #cc3d00;
 }
 
 h1 {
@@ -61,15 +59,15 @@ h1 {
   color: #6e604b;
   font-size: 2em;
   text-shadow:
-    0 0 6px #b3997a,
-    0 0 10px #6e604b;
+    0 0 8px #b3997a,
+    0 0 14px #6e604b;
 }
 
 h2 {
   margin: 0 0 16px 0;
   color: #b3997a;
   font-weight: 400;
-  text-shadow: 0 0 6px #8c7e65;
+  text-shadow: 0 0 8px #8c7e65;
 }
 
 .section-label {
@@ -80,8 +78,8 @@ h2 {
   margin-bottom: 0.3em;
   margin-top: 1em;
   text-shadow:
-    0 0 8px #cc3d00,
-    0 0 12px #ff4c00;
+    0 0 12px #cc3d00,
+    0 0 16px #ff4c00;
   text-align: center;
   border-bottom: 2px solid black;
   padding-bottom: 4px;
@@ -102,8 +100,8 @@ h2 {
   font-weight: 700;
   transition: color 0.3s, text-shadow 0.3s;
   text-shadow:
-    0 0 4px #a3917a,
-    0 0 6px #6e604b;
+    0 0 6px #a3917a,
+    0 0 8px #6e604b;
   padding: 2px 10px;
   border-radius: 6px;
   outline: none;
@@ -113,9 +111,9 @@ h2 {
 .link-text a:focus {
   color: #ff4c00;
   text-shadow:
-    0 0 12px #ff4c00,
-    0 0 18px #cc3d00,
-    0 0 24px #b34b00;
+    0 0 18px #ff4c00,
+    0 0 22px #cc3d00,
+    0 0 28px #b34b00;
 }
 
 #overlay {
@@ -143,9 +141,9 @@ h2 {
   font-size: 2.5em;
   font-weight: bold;
   text-shadow:
-    0 0 12px #ff4c00,
-    0 0 24px #cc3d00,
-    0 0 36px #b33a00;
+    0 0 16px #ff4c00,
+    0 0 28px #cc3d00,
+    0 0 44px #b33a00;
   letter-spacing: 0.05em;
   margin-top: 1rem;
   text-align: center;
@@ -173,8 +171,8 @@ h2 {
   background-color: #ff4c00;
   color: black;
   box-shadow:
-    0 0 12px #ff6a22,
-    0 0 20px #cc3d00;
+    0 0 16px #ff6a22,
+    0 0 26px #cc3d00;
   filter: brightness(1.1);
 }
 
@@ -182,8 +180,8 @@ h2 {
   background-color: #cc3d00;
   color: white;
   box-shadow:
-    0 0 24px #ff4c00,
-    0 0 40px #b33400;
+    0 0 28px #ff4c00,
+    0 0 48px #b33400;
   filter: brightness(1.3);
 }
 
