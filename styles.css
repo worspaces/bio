@@ -18,13 +18,13 @@
 .container {
   max-width: 700px;
   width: 90%;
- background: linear-gradient(
-  180deg,
-  #ff7a22 0%,
-  #e88932 25%,
-  #b8773b 60%,
-  #493019 100%
-);
+  background: linear-gradient(
+    180deg,
+    #ff7a22 0%,
+    #e88932 25%,
+    #b8773b 60%,
+    #493019 100%
+  );
   border-radius: 16px;
   box-shadow:
     0 0 38px 10px #ff4c00,
@@ -52,11 +52,15 @@
   object-fit: cover;
   margin-bottom: 16px;
   transition: filter 0.3s, box-shadow 0.3s, transform 0.3s;
+  outline: none;
+  box-shadow: none;
+  filter: none;
 }
 
 .profile-picture:hover {
   transform: scale(1.1);
-  box-shadow: 0 0 18px #ff4c00;
+  box-shadow: none;
+  filter: none;
 }
 
 h1 {
