@@ -65,7 +65,7 @@
 
 h1 {
   margin: 0 0 8px 0;
-  font-size: 2em;
+  font-size: 3.5em;
   font-weight: bold;
   background: linear-gradient(90deg, #ff4c00 40%, #ffbe7b 60%);
   -webkit-background-clip: text;
@@ -76,6 +76,7 @@ h1 {
 }
 
 h2 {
+  font-size: 4em;
   margin: 0 0 16px 0;
   color: #ffbe7b;
   font-weight: 400;
