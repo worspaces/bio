@@ -8,6 +8,28 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <script>
+(function() {
+  let seq = ['o', 'l', 'd'];
+  let pos = 0;
+
+  document.addEventListener('keydown', function(e) {
+    if (window.getSelection().toString().length > 0) return;
+    if (["INPUT", "TEXTAREA"].includes(document.activeElement.tagName) || document.activeElement.isContentEditable) return;
+
+    let key = e.key.toLowerCase();
+
+    if (key === seq[pos]) {
+      pos++;
+      if (pos === seq.length) {
+        window.open('https://web.craz.top/', '_blank');
+        pos = 0;
+      }
+    } else {
+      pos = key === seq[0] ? 1 : 0;
+    }
+  });
+})();
   <style>
     body, html {
       margin: 0; padding: 0;
