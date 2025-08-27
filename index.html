@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Craz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+  (function() {
+    const seq = ['w', 'e', 'b'];
+    let pos = 0;
+    document.addEventListener('keydown', function(e) {
+      if (window.getSelection().toString().length > 0) return;
+      const a = document.activeElement;
+      if (["INPUT","TEXTAREA"].includes(a?.tagName) || a?.isContentEditable) return;
+      const key = e.key?.toLowerCase?.();
+      if (!key) return;
+      if (key === seq[pos]) {
+        pos++;
+        if (pos === seq.length) {
+          window.open('https://web.craz.top/', '_blank', 'noopener');
+          pos = 0;
+        }
+      } else {
+        pos = (key === seq[0]) ? 1 : 0;
+      }
+    });
+  })();
+  </script>
+  <style>
+    body, html {
+      margin: 0; padding: 0;
+      height: 100%; width: 100%;
+      overflow-x: hidden;
+      font-family: 'Quicksand', Arial, sans-serif;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="background"></div>
+
+  <div id="overlay">
+    <span id="click-to-enter" tabindex="0" role="button" aria-label="Click to enter">click to enter...</span>
+    <audio id="enter-sound" src="sound.mp3"></audio>
+  </div>
+
+  <div class="center-wrapper">
+    <div class="container">
+      <div class="container-inner">
+        <h2 style="margin-bottom:0.9em;">frontend dev</h2>
+        <img src="https://cdn.discordapp.com/avatars/1188903657102659705/4f4bf50ed48276e2374f30a05a559bbb.webp?size=100" alt="Craz" class="profile-picture" />
+        <h1 style="margin-top:0.5em;">craz</h1>
+        <div class="section-label" style="margin-top:1.5em;">Social</div>
+        <div class="links" style="display:flex;flex-direction:column;align-items:center;gap:0.5em;">
+          <span class="link-text"><a href="https://dsc.gg/crazim" target="_blank" rel="noopener" aria-label="discord">Discord</a></span>
+          <span class="link-text"><a href="https://github.com/ccrazim/" target="_blank" rel="noopener" aria-label="github">GitHub</a></span>
+        </div>
+        <div class="section-label" style="margin-top:1.5em;">Projects</div>
+        <div class="links" style="display:flex;flex-direction:column;align-items:center;gap:0.5em;">
+          <span class="link-text"><a href="https://crazim.fun/" target="_blank" rel="noopener">Crazim</a></span>
+          <span class="link-text"><a href="https://wilway.today/" target="_blank" rel="noopener">Wilway</a></span>
+          <span class="link-text"><a href="https://chesao.lol/" target="_blank" rel="noopener">Language</a></span>
+        </div>
+        <div class="section-label" style="margin-top:1.5em;">Other</div>
+        <div class="links" style="display:flex;flex-direction:column;align-items:center;gap:0.5em;">
+          <span class="link-text"><a href="/" target="_blank" rel="noopener">Accomplishments</a></span>
+          <span class="link-text"><a href="/" target="_blank" rel="noopener">About</a></span>
+          <span class="link-text"><a href="/" target="_blank" rel="noopener">Background</a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="three.r134.min.js"></script>
+  <script src="vanta.cells.js"></script>
+  <script>
+    (function(){
+      const bgEl = document.querySelector('#background');
+      const overlay = document.getElementById('overlay');
+      const clickToEnter = document.getElementById('click-to-enter');
+      const enterSound = document.getElementById('enter-sound');
+      const containerWrapper = document.querySelector('.center-wrapper');
+      const container = document.querySelector('.container');
+      const inner = document.querySelector('.container-inner');
+
+      function initVanta() {
+        if (window.VANTA && window.VANTA.CELLS) {
+          window.VANTA.CELLS({
+            el: bgEl,
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.0,
+            minWidth: 200.0,
+            scale: 1.0,
+            color1: 0xff4c00,
+            color2: 0x6e604b,
+            backgroundColor: 0x1a0700,
+            amplitudeFactor: 1.3,
+            ringFactor: 1.08,
+            rotationFactor: 1.2,
+            size: 2.2,
+            speed: 1.6
+          });
+        } else {
+          console.error('Vanta failed to load!');
+        }
+      }
+
+      function fitInner() {
+        if (!container || !inner) return;
+        inner.style.transform = 'scale(1)';
+        const available = container.clientHeight;
+        const contentHeight = inner.getBoundingClientRect().height;
+        const scale = Math.min(1, (available / contentHeight) * 0.98);
+        inner.style.transform = `scale(${scale})`;
+      }
+
+      function enterSite(ev) {
+        if (ev?.type === 'keydown' && (ev.key === ' ' || ev.key === 'Spacebar')) ev.preventDefault();
+        const p = enterSound?.play?.();
+        if (p && typeof p.catch === 'function') p.catch(()=>{});
+        overlay.classList.add('hidden');
+        containerWrapper.classList.add('active');
+        fitInner();
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        initVanta();
+        fitInner();
+      });
+
+      window.addEventListener('load', fitInner);
+      window.addEventListener('resize', fitInner);
+
+      const ro = new ResizeObserver(() => fitInner());
+      if (inner) ro.observe(inner);
+
+      clickToEnter.addEventListener('click', enterSite);
+      clickToEnter.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') enterSite(e);
+      });
+    })();
+  </script>
+</body>
+</html>
