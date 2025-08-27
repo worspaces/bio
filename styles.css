@@ -31,7 +31,7 @@
     0 0 38px 10px #ff4c00,
     0 0 48px 0px #ff4c00,
     0 6px 30px rgba(0, 0, 0, 0.9);
-  padding: clamp(16px, 4vw, 32px);
+  padding: clamp(12px, 3vw, 24px); 
   text-align: center;
   position: relative;
   z-index: 2;
@@ -39,7 +39,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: min(400px, 80vh);
+  height: fit-content;
   backdrop-filter: blur(3px);
   pointer-events: auto;
   margin: 0;
