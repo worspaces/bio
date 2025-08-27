@@ -19,7 +19,6 @@
   max-width: 700px;
   width: 90%;
   max-height: 90vh;
-  overflow-y: auto;
   background: linear-gradient(
     180deg,
     #ff7a22 0%,
@@ -32,15 +31,15 @@
     0 0 38px 10px #ff4c00,
     0 0 48px 0px #ff4c00,
     0 6px 30px rgba(0, 0, 0, 0.9);
-  padding: 32px;
+  padding: clamp(16px, 4vw, 32px);
   text-align: center;
   position: relative;
   z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  min-height: 400px;
+  justify-content: center;
+  min-height: min(400px, 80vh);
   backdrop-filter: blur(3px);
   pointer-events: auto;
   margin: 0;
