@@ -9,26 +9,27 @@
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <script>
-  (function() {
-    const seq = ['w', 'e', 'b'];
-    let pos = 0;
-    document.addEventListener('keydown', function(e) {
-      if (window.getSelection().toString().length > 0) return;
-      const a = document.activeElement;
-      if (["INPUT","TEXTAREA"].includes(a?.tagName) || a?.isContentEditable) return;
-      const key = e.key?.toLowerCase?.();
-      if (!key) return;
-      if (key === seq[pos]) {
-        pos++;
-        if (pos === seq.length) {
-          window.open('https://web.craz.top/', '_blank', 'noopener');
-          pos = 0;
-        }
-      } else {
-        pos = (key === seq[0]) ? 1 : 0;
+(function() {
+  let seq = ['w', 'e', 'b'];
+  let pos = 0;
+
+  document.addEventListener('keydown', function(e) {
+    if (window.getSelection().toString().length > 0) return;
+    if (["INPUT", "TEXTAREA"].includes(document.activeElement.tagName) || document.activeElement.isContentEditable) return;
+
+    let key = e.key.toLowerCase();
+
+    if (key === seq[pos]) {
+      pos++;
+      if (pos === seq.length) {
+        window.open('https://web.craz.top/', '_blank');
+        pos = 0;
       }
-    });
-  })();
+    } else {
+      pos = key === seq[0] ? 1 : 0;
+    }
+  });
+})();
   </script>
   <style>
     body, html {
@@ -38,39 +39,70 @@
       font-family: 'Quicksand', Arial, sans-serif;
       text-decoration: none;
     }
+    #background {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      z-index: 0;
+    }
+    #overlay {
+      position: fixed;
+      z-index: 1000;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      backdrop-filter: blur(18px);
+      background: rgba(60, 24, 4, 0.93);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      transition: opacity 0.5s;
+    }
+    #click-to-enter {
+      color: #ff4c00;
+      font-size: 2.3em;
+      font-weight: bold;
+      text-shadow: 0 2px 14px #222, 0 0 18px #ff4c00;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.2rem;
+      font-family: 'Quicksand', Arial, sans-serif;
+      text-align: center;
+      cursor: pointer;
+      transition: color 0.15s, text-shadow 0.15s, filter 0.2s;
+      user-select: none;
+      padding: 0.15em 0.2em;
+      border-radius: 6px;
+    }
+    #click-to-enter:hover, #click-to-enter:focus {
+      color: #fff;
+      text-shadow: 0 0 25px #ff4c00, 0 0 36px #ffbe7b;
+      filter: brightness(1.13);
+    }
   </style>
 </head>
 <body>
   <div id="background"></div>
 
   <div id="overlay">
-    <span id="click-to-enter" tabindex="0" role="button" aria-label="Click to enter">click to enter...</span>
+    <span id="click-to-enter" tabindex="0">click to enter...</span>
     <audio id="enter-sound" src="sound.mp3"></audio>
   </div>
 
-  <div class="center-wrapper">
+  <div class="center-wrapper" style="position:relative;z-index:2;filter:blur(18px);transition:filter 1s;">
     <div class="container">
-      <div class="container-inner">
-        <h2 style="margin-bottom:0.9em;">frontend dev</h2>
-        <img src="https://cdn.discordapp.com/avatars/1188903657102659705/4f4bf50ed48276e2374f30a05a559bbb.webp?size=100" alt="Craz" class="profile-picture" />
-        <h1 style="margin-top:0.5em;">craz</h1>
-        <div class="section-label" style="margin-top:1.5em;">Social</div>
-        <div class="links" style="display:flex;flex-direction:column;align-items:center;gap:0.5em;">
-          <span class="link-text"><a href="https://dsc.gg/crazim" target="_blank" rel="noopener" aria-label="discord">Discord</a></span>
-          <span class="link-text"><a href="https://github.com/ccrazim/" target="_blank" rel="noopener" aria-label="github">GitHub</a></span>
-        </div>
-        <div class="section-label" style="margin-top:1.5em;">Projects</div>
-        <div class="links" style="display:flex;flex-direction:column;align-items:center;gap:0.5em;">
-          <span class="link-text"><a href="https://crazim.fun/" target="_blank" rel="noopener">Crazim</a></span>
-          <span class="link-text"><a href="https://wilway.today/" target="_blank" rel="noopener">Wilway</a></span>
-          <span class="link-text"><a href="https://chesao.lol/" target="_blank" rel="noopener">Language</a></span>
-        </div>
-        <div class="section-label" style="margin-top:1.5em;">Other</div>
-        <div class="links" style="display:flex;flex-direction:column;align-items:center;gap:0.5em;">
-          <span class="link-text"><a href="/" target="_blank" rel="noopener">Accomplishments</a></span>
-          <span class="link-text"><a href="/" target="_blank" rel="noopener">About</a></span>
-          <span class="link-text"><a href="/" target="_blank" rel="noopener">Background</a></span>
-        </div>
+      <h2 style="margin-bottom:0.9em;">frontend dev</h2>
+      <img src="https://cdn.discordapp.com/avatars/1188903657102659705/4f4bf50ed48276e2374f30a05a559bbb.webp?size=100" alt="Craz" class="profile-picture" />
+      <h1 style="margin-top:0.5em;">craz</h1>
+      <div class="section-label" style="margin-top:1.5em;">Social</div>
+      <div class="links" style="display:flex;flex-direction:column;align-items:center;gap:0.5em;">
+        <span class="link-text"><a href="https://dsc.gg/crazim" target="_blank" aria-label="mail">Discord</a></span>
+        <span class="link-text"><a href="https://github.com/ccrazim/" target="_blank" aria-label="github">GitHub</a></span>
+      </div>
+      <div class="section-label" style="margin-top:1.5em;">Projects</div>
+      <div class="links" style="display:flex;flex-direction:column;align-items:center;gap:0.5em;">
+        <span class="link-text"><a href="https://crazim.fun/" target="_blank" aria-label="mail">Crazim</a></span>
+        <span class="link-text"><a href="https://wilway.today/" target="_blank" aria-label="mail">Wilway</a></span>
+        <span class="link-text"><a href="https://chesao.lol/" target="_blank" aria-label="mail">Language</a></span>
       </div>
     </div>
   </div>
@@ -78,18 +110,16 @@
   <script src="three.r134.min.js"></script>
   <script src="vanta.cells.js"></script>
   <script>
-    (function(){
+    document.addEventListener('DOMContentLoaded', () => {
       const bgEl = document.querySelector('#background');
       const overlay = document.getElementById('overlay');
       const clickToEnter = document.getElementById('click-to-enter');
       const enterSound = document.getElementById('enter-sound');
       const containerWrapper = document.querySelector('.center-wrapper');
-      const container = document.querySelector('.container');
-      const inner = document.querySelector('.container-inner');
 
       function initVanta() {
         if (window.VANTA && window.VANTA.CELLS) {
-          window.VANTA.CELLS({
+          VANTA.CELLS({
             el: bgEl,
             mouseControls: true,
             touchControls: true,
@@ -111,40 +141,20 @@
         }
       }
 
-      function fitInner() {
-        if (!container || !inner) return;
-        inner.style.transform = 'scale(1)';
-        const available = container.clientHeight;
-        const contentHeight = inner.getBoundingClientRect().height;
-        const scale = Math.min(1, (available / contentHeight) * 0.98);
-        inner.style.transform = `scale(${scale})`;
+      initVanta();
+
+      function enterSite() {
+        enterSound.play();
+        overlay.style.opacity = 0;
+        overlay.style.pointerEvents = 'none';
+        containerWrapper.style.filter = 'none';
       }
-
-      function enterSite(ev) {
-        if (ev?.type === 'keydown' && (ev.key === ' ' || ev.key === 'Spacebar')) ev.preventDefault();
-        const p = enterSound?.play?.();
-        if (p && typeof p.catch === 'function') p.catch(()=>{});
-        overlay.classList.add('hidden');
-        containerWrapper.classList.add('active');
-        fitInner();
-      }
-
-      document.addEventListener('DOMContentLoaded', () => {
-        initVanta();
-        fitInner();
-      });
-
-      window.addEventListener('load', fitInner);
-      window.addEventListener('resize', fitInner);
-
-      const ro = new ResizeObserver(() => fitInner());
-      if (inner) ro.observe(inner);
 
       clickToEnter.addEventListener('click', enterSite);
       clickToEnter.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') enterSite(e);
+        if (e.key === "Enter" || e.key === " ") enterSite();
       });
-    })();
+    });
   </script>
 </body>
 </html>
